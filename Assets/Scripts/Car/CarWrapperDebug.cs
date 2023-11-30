@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VehiclePhysics;
 
 public class CarWrapperDebug : MonoBehaviour
 {
@@ -32,12 +33,29 @@ public class CarWrapperDebug : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Keypad2))
         {
-            _wrapper.SetThrottle(0.5f);
+            float val = 0f;
+
+            val = (val + 1) * 0.5f;
+            print(val);
+
+            _wrapper.SetThrottle(val);
         }
 
         if (Input.GetKey(KeyCode.Keypad5))
         {
-            _wrapper.SetThrottle(1f);
+            float val = 0.5f;
+
+            val = (val + 1) * 0.5f;
+            
+            _wrapper.SetThrottle(val);
+        }
+        
+        if (Input.GetKey(KeyCode.Keypad8))
+        {
+            float val = 1f;
+
+            val = (val + 1) * 0.5f;
+            _wrapper.SetThrottle(val);
         }
         
     }

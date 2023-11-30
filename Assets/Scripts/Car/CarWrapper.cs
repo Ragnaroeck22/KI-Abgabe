@@ -18,7 +18,7 @@ public class CarWrapper : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    // === Outputs ===
+    // === Observations ===
     public Vector3 GetMovementDirection()
     {
         return _rigidbody.velocity;
@@ -27,13 +27,6 @@ public class CarWrapper : MonoBehaviour
     public float GetVelocity()
     {
         return _rigidbody.velocity.magnitude;
-    }
-    
-    // Raycasts not yet implemented
-
-    public Quaternion GetOrientation()
-    {
-        return transform.rotation;
     }
 
     public Vector3 GetForwardDirection()
@@ -63,7 +56,7 @@ public class CarWrapper : MonoBehaviour
     
     // Get if engine is stalled??
     
-    // === Inputs ===
+    // === Actions ===
     public void SetThrottle(float value)
     {
         _vehicleController.data.Set(Channel.Input, InputData.Throttle, (int)(value * 10000f));
@@ -74,7 +67,7 @@ public class CarWrapper : MonoBehaviour
         _vehicleController.data.Set(Channel.Input, InputData.Brake, (int)(value * 10000f));
     }
     
-    // Maybe placeholder
+    // Placeholder  
     public void SetGear(int value)
     {
         
