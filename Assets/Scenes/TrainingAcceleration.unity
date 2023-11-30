@@ -3261,6 +3261,7 @@ GameObject:
   - component: {fileID: 2069814030520999958}
   - component: {fileID: 2069814030520999957}
   - component: {fileID: 2069814030520999959}
+  - component: {fileID: 2069814030520999960}
   m_Layer: 8
   m_Name: CarAgent
   m_TagString: Untagged
@@ -3413,6 +3414,9 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  _startPosition: {x: 102.56, y: -0.02316809, z: 0}
+  _startRotation: {x: 0, y: -0.7162349, z: 0, w: 0.6978592}
+  _allowRandomRotation: 0
   _wrapper: {fileID: 2069814030520999953}
 --- !u!114 &2069814030520999958
 MonoBehaviour:
@@ -3431,7 +3435,7 @@ MonoBehaviour:
     NumStackedVectorObservations: 2
     m_ActionSpec:
       m_NumContinuousActions: 4
-      BranchSizes: 01000000
+      BranchSizes: 03000000
     VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
@@ -3458,6 +3462,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &2069814030520999960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069814030520999949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ac54f83028d4748ad463377508f308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _punishmentWall: -0.8
+  _punishmentHighDriftAngle: -0.2
+  _punishmentSpinOut: -0.7
+  _rewardCheckpoint: 0.6
+  _rewardGoal: 0.8
+  _rewardVelocityModifier: 0.1
 --- !u!64 &2069814030608330915
 MeshCollider:
   m_ObjectHideFlags: 0

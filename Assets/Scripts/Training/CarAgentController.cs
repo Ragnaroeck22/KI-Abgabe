@@ -9,13 +9,19 @@ using Random = UnityEngine.Random;
 
 public class CarAgentController : Agent
 {
+    // Config
+    [SerializeField] private Vector3 _startPosition;
+    [SerializeField] private Quaternion _startRotation;
+    [SerializeField] private bool _allowRandomRotation = false;
+    
+    
     [SerializeField] private CarWrapper _wrapper;
 
     public override void OnEpisodeBegin()
     {
-        
+        transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
     }
-    
+
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(_wrapper.GetMovementDirection());
@@ -29,29 +35,31 @@ public class CarAgentController : Agent
     
     public override void OnActionReceived(ActionBuffers actions)
     {
+        // Assign Continuous actions
+        var valSteering = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
+        var valThrottle = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f);
+        var valBrake = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f);
+        var valHandbrake = Mathf.Clamp(actions.ContinuousActions[3], -1f, 1f);
+      
+        // Assign Discrete actions
+        var valGearshift = actions.DiscreteActions[0];
+
         
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.CompareTag("Wall"))
+        // Implement Continuous actions
+        _wrapper.SetSteeringAngle(valSteering);
+        _wrapper.SetThrottle(valThrottle);
+        _wrapper.SetBrakes(valBrake);
+        _wrapper.SetHandbrake(valHandbrake);
+        
+        // Implement Discrete actions
+        switch (valGearshift)
         {
-            AddReward(-5f);
-            EndEpisode();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Checkpoint"))
-        {
-            
-        }
-
-        if (other.CompareTag("Goal"))
-        {
-            
+            case 1:
+                _wrapper.SetGearDown();
+                break;
+            case 2:
+                _wrapper.SetGearUp();
+                break;
         }
     }
 }
