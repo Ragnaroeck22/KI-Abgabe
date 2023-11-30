@@ -11,7 +11,7 @@ public class CarAgentController : Agent, ICpNotifier
 {
     // Config
     [SerializeField] private Vector3 _startPosition;
-    [SerializeField] private Quaternion _startRotation;
+    [SerializeField] private Vector3 _startRotation;
     [SerializeField] private bool _allowRandomRotation = false;
     //[SerializeField] private float _maximumRotationDeviation = 15f;
     
@@ -21,7 +21,10 @@ public class CarAgentController : Agent, ICpNotifier
 
     public override void OnEpisodeBegin()
     {
-        transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
+        
+        _wrapper.Reset(_startPosition);
+        transform.SetLocalPositionAndRotation(_startPosition, Quaternion.Euler(_startRotation));
+        
         
         // Deviate from start rotation here
         if (_allowRandomRotation)
@@ -50,6 +53,7 @@ public class CarAgentController : Agent, ICpNotifier
     
     public override void OnActionReceived(ActionBuffers actions)
     {
+        /*
         // Assign Continuous actions
         var valSteering = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
         var valThrottle = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f);
@@ -76,6 +80,7 @@ public class CarAgentController : Agent, ICpNotifier
                 _wrapper.SetGearUp();
                 break;
         }
+        */
     }
     
     public override void Heuristic(in ActionBuffers actionsOut)

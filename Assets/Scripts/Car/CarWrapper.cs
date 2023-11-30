@@ -93,4 +93,13 @@ public class CarWrapper : MonoBehaviour
     }
     
     // Start / Stop engine??
+    
+    
+    // RB reset funcs
+    public void Reset(Vector3 resetPosition)
+    {
+        _rigidbody.position = resetPosition;
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+    }
 }
