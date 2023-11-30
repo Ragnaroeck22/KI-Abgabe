@@ -36,7 +36,6 @@ public class CarWrapperDebug : MonoBehaviour
             float val = 0f;
 
             val = (val + 1) * 0.5f;
-            print(val);
 
             _wrapper.SetThrottle(val);
         }
@@ -57,7 +56,6 @@ public class CarWrapperDebug : MonoBehaviour
             val = (val + 1) * 0.5f;
             _wrapper.SetThrottle(val);
         }
-        
     }
 
     private void DrawMovementDirection()

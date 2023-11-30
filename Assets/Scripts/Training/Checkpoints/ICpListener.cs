@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICpListener
 {
-    public void OnNotify(Checkpoint notifier);
+    public void OnNotify(Transform notifier);
 }

@@ -10,7 +10,9 @@ using Random = UnityEngine.Random;
 public class AgentController : Agent
 {
     [SerializeField] private Transform target;
-
+    
+    
+    
     public override void OnEpisodeBegin()
     {
         transform.localPosition = new Vector3(0f, 0.03f, 0f);

@@ -56,6 +56,9 @@ public class CarRewardController : MonoBehaviour
         if (other.CompareTag("Checkpoint"))
         {
             _agent.AddReward(_rewardCheckpoint);
+            Checkpoint cp = other.GetComponent<Checkpoint>();
+            _agent.AddCheckpoint(cp);
+            cp.gameObject.SetActive(false);
         }
 
         if (other.CompareTag("Goal"))

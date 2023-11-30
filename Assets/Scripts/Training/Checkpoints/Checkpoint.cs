@@ -2,27 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour, ICpNotifier
+public class Checkpoint : MonoBehaviour, ICpListener
 {
-    private List<ICpListener> _listeners;
-
-    public void NotifyListeners()
+    public void OnNotify(Transform notifier)
     {
-        foreach (var listener in _listeners)
-        {
-            listener.OnNotify(this);
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameObject.SetActive(true);
     }
 }
