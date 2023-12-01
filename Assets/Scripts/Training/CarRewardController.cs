@@ -17,10 +17,24 @@ public class CarRewardController : MonoBehaviour
     [SerializeField] private float _rewardGoal = 0.8f;
     [SerializeField] private float _rewardVelocityModifier = 0.1f;
 
+    [SerializeField] private float _timeoutSeconds = 60f;
+    private float _timeoutTimer = 0f;
     private void Start()
     {
         _agent = GetComponent<CarAgentController>();
         _wrapper = GetComponent<CarWrapper>();
+    }
+
+    private void Update()
+    {
+        if (_timeoutTimer > _timeoutSeconds)
+        {
+            _timeoutTimer = 0;
+            _agent.EndEpisode();
+            return;
+        }
+
+        _timeoutTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()

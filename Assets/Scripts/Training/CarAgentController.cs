@@ -45,7 +45,6 @@ public class CarAgentController : Agent
     
     public override void OnActionReceived(ActionBuffers actions)
     {
-        /*
         // Assign Continuous actions
         var valSteering = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
         var valThrottle = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f);
@@ -72,7 +71,6 @@ public class CarAgentController : Agent
                 _wrapper.SetGearUp();
                 break;
         }
-        */
     }
     
     public override void Heuristic(in ActionBuffers actionsOut)
