@@ -9,7 +9,7 @@ public class CarWrapper : MonoBehaviour
     //https://vehiclephysics.com/advanced/databus-reference/#data-channels
     
     private VPVehicleController _vehicleController;
-    private Rigidbody _rigidbody;
+    [SerializeField] private Rigidbody _rigidbody;
     
     // Start is called before the first frame update
     void Start()

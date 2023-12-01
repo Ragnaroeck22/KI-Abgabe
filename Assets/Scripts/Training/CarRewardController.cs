@@ -20,7 +20,7 @@ public class CarRewardController : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<CarAgentController>();
-        _wrapper = GetComponent<CarWrapper>();
+        Reset();
     }
 
     private void FixedUpdate()
@@ -66,5 +66,10 @@ public class CarRewardController : MonoBehaviour
             _agent.AddReward(_rewardGoal);
             _agent.EndEpisode();
         }
+    }
+
+    public void Reset()
+    {
+        _wrapper = GetComponentInChildren<CarWrapper>();
     }
 }

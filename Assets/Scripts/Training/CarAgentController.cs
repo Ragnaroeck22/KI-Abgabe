@@ -13,23 +13,33 @@ public class CarAgentController : Agent, ICpNotifier
     [SerializeField] private Vector3 _startPosition;
     [SerializeField] private Vector3 _startRotation;
     [SerializeField] private bool _allowRandomRotation = false;
-    //[SerializeField] private float _maximumRotationDeviation = 15f;
-    
-    
-    [SerializeField] private CarWrapper _wrapper;
+    [SerializeField] private float _maximumRotationDeviation = 15f;
+
+    [SerializeField] private GameObject _carPrefab;
+    private CarWrapper _wrapper;
     private List<Checkpoint> _checkpoints = new List<Checkpoint>();
 
     public override void OnEpisodeBegin()
     {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
         
-        _wrapper.Reset(_startPosition);
-        transform.SetLocalPositionAndRotation(_startPosition, Quaternion.Euler(_startRotation));
+        GameObject car = Instantiate(_carPrefab, transform);
+        _wrapper = car.GetComponentInChildren<CarWrapper>();
+        GetComponent<CarRewardController>().Reset();
+        GetComponentInChildren<CarSensors>()._car = car.transform;
+        
+        //_wrapper.Reset(_startPosition);
+        //transform.SetLocalPositionAndRotation(_startPosition, Quaternion.Euler(_startRotation));
         
         
         // Deviate from start rotation here
         if (_allowRandomRotation)
         {
-            
+            float rot = Random.Range(-_maximumRotationDeviation, _maximumRotationDeviation);
+            //car.transform.Rotate(rot);
         }
         
         // Reset checkpoints
