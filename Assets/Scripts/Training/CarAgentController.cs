@@ -7,7 +7,7 @@ using Unity.MLAgents.Sensors;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CarAgentController : Agent, ICpNotifier
+public class CarAgentController : Agent
 {
     // Config
     [SerializeField] private Vector3 _startPosition;
@@ -15,9 +15,7 @@ public class CarAgentController : Agent, ICpNotifier
     [SerializeField] private bool _allowRandomRotation = false;
     //[SerializeField] private float _maximumRotationDeviation = 15f;
     
-    
     [SerializeField] private CarWrapper _wrapper;
-    private List<Checkpoint> _checkpoints = new List<Checkpoint>();
 
     public override void OnEpisodeBegin()
     {
@@ -32,12 +30,6 @@ public class CarAgentController : Agent, ICpNotifier
             
         }
         
-        // Reset checkpoints
-        foreach (var checkpoint in _checkpoints)
-        {
-            checkpoint.OnNotify(transform);
-        }
-        _checkpoints.Clear();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -88,16 +80,4 @@ public class CarAgentController : Agent, ICpNotifier
         
     }
     
-    public void NotifyListeners()
-    {
-        foreach (var listener in _checkpoints)
-        {
-            listener.OnNotify(transform);
-        }
-    }
-
-    public void AddCheckpoint(Checkpoint checkpoint)
-    {
-        _checkpoints.Add(checkpoint);
-    }
 }

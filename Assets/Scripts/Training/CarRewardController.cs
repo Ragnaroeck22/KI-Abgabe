@@ -55,15 +55,15 @@ public class CarRewardController : MonoBehaviour
     {
         if (other.CompareTag("Checkpoint"))
         {
+            print("Checkpoint reached");
             _agent.AddReward(_rewardCheckpoint);
-            Checkpoint cp = other.GetComponent<Checkpoint>();
-            _agent.AddCheckpoint(cp);
-            cp.gameObject.SetActive(false);
+            other.GetComponent<Checkpoint>().CheckpointReached();
         }
 
         if (other.CompareTag("Goal"))
         {
             _agent.AddReward(_rewardGoal);
+            other.GetComponent<Checkpoint>().CheckpointReached();
             _agent.EndEpisode();
         }
     }
