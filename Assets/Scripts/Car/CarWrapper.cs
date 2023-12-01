@@ -10,6 +10,8 @@ public class CarWrapper : MonoBehaviour
     
     private VPVehicleController _vehicleController;
     private Rigidbody _rigidbody;
+
+    [SerializeField] private float _physicsDelay = 0.01f; // To avoid nasty physics shenanigans
     
     // Start is called before the first frame update
     void Start()
@@ -69,6 +71,11 @@ public class CarWrapper : MonoBehaviour
         _vehicleController.data.Set(Channel.Input, InputData.Brake, (int)(value * 10000f));
     }
 
+    private void SetGear(int value)
+    {
+        _vehicleController.data.Set(Channel.Input, InputData.ManualGear, value);
+    }
+    
     public void SetGearUp()
     {
         _vehicleController.data.Set(Channel.Input, InputData.GearShift, 1);
@@ -98,8 +105,15 @@ public class CarWrapper : MonoBehaviour
     // RB reset funcs
     public void Reset(Vector3 resetPosition)
     {
+        _rigidbody.isKinematic = true;
         _rigidbody.position = resetPosition;
-        _rigidbody.velocity = Vector3.zero;
-        _rigidbody.angularVelocity = Vector3.zero;
+        SetGear(0);
+        StartCoroutine(WaitForStupidPhysicsToCalmDown());
+    }
+
+    private IEnumerator WaitForStupidPhysicsToCalmDown()
+    {
+        yield return new WaitForSeconds(_physicsDelay);
+        _rigidbody.isKinematic = false;
     }
 }
