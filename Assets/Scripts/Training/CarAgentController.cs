@@ -48,20 +48,21 @@ public class CarAgentController : Agent
         // Assign Continuous actions
         var valSteering = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
         var valThrottle = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f);
-        var valBrake = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f);
-        var valHandbrake = Mathf.Clamp(actions.ContinuousActions[3], -1f, 1f);
+        //var valBrake = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f);
+        //var valHandbrake = Mathf.Clamp(actions.ContinuousActions[3], -1f, 1f);
       
         // Assign Discrete actions
-        var valGearshift = actions.DiscreteActions[0];
+        //var valGearshift = actions.DiscreteActions[0];
 
         
         // Implement Continuous actions
         _wrapper.SetSteeringAngle(valSteering);
         _wrapper.SetThrottle(valThrottle);
-        _wrapper.SetBrakes(valBrake);
-        _wrapper.SetHandbrake(valHandbrake);
+        //_wrapper.SetBrakes(valBrake);
+        //_wrapper.SetHandbrake(valHandbrake);
         
         // Implement Discrete actions
+        /*
         switch (valGearshift)
         {
             case 1:
@@ -71,6 +72,7 @@ public class CarAgentController : Agent
                 _wrapper.SetGearUp();
                 break;
         }
+        */
     }
     
     public override void Heuristic(in ActionBuffers actionsOut)

@@ -65,3 +65,12 @@ mlagents-learn --run-id =[Existierende Run-ID] --resume
 ``
 mlagents-learn --run-id =PelletGrabberRun3 --resume
 ``
+
+### Aktueller Befehl:
+``
+mlagents-learn --run-id =CarFirstRun --time-scale 1
+``
+
+``
+mlagents-learn --run-id =CarFirstRun --resume --time-scale 1
+``

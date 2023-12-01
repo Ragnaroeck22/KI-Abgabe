@@ -17,6 +17,7 @@ public class CarRewardController : MonoBehaviour
     [SerializeField] private float _rewardGoal = 0.8f;
     [SerializeField] private float _rewardVelocityModifier = 0.1f;
 
+    [SerializeField] private bool _enableTimeout = false;
     [SerializeField] private float _timeoutSeconds = 60f;
     private float _timeoutTimer = 0f;
     private void Start()
@@ -27,8 +28,12 @@ public class CarRewardController : MonoBehaviour
 
     private void Update()
     {
+        if (!_enableTimeout)
+            return;
+        
         if (_timeoutTimer > _timeoutSeconds)
         {
+            Debug.Log("Timeout");
             _timeoutTimer = 0;
             _agent.EndEpisode();
             return;
@@ -46,7 +51,9 @@ public class CarRewardController : MonoBehaviour
             return;
 
         float driftAngle = _wrapper.GetAngleMovementToForward();
-        if (driftAngle >= 100)
+        
+        // Temporary: punish light drifting as well! (value was 100 instead of 30)
+        if (driftAngle >= 15)
         {
             if (driftAngle >= 170)
                 _agent.AddReward(_punishmentSpinOut);
@@ -60,6 +67,7 @@ public class CarRewardController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
+            Debug.Log("Collision with wall");
             _agent.AddReward(_punishmentWall);
             _agent.EndEpisode();
         }
@@ -69,13 +77,14 @@ public class CarRewardController : MonoBehaviour
     {
         if (other.CompareTag("Checkpoint"))
         {
-            print("Checkpoint reached");
+            Debug.Log("Checkpoint reached");
             _agent.AddReward(_rewardCheckpoint);
             other.GetComponent<Checkpoint>().CheckpointReached();
         }
 
         if (other.CompareTag("Goal"))
         {
+            Debug.Log("Goal reached");
             _agent.AddReward(_rewardGoal);
             other.GetComponent<Checkpoint>().CheckpointReached();
             _agent.EndEpisode();

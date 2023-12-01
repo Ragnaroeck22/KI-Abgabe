@@ -1,0 +1,56 @@
+{
+    "My Behavior": {
+        "checkpoints": [
+            {
+                "steps": 19992,
+                "file_path": "results\\=CarFirstRun\\My Behavior\\My Behavior-19992.onnx",
+                "reward": 7.8286414714674875,
+                "creation_time": 1701439554.349024,
+                "auxillary_file_paths": [
+                    "results\\=CarFirstRun\\My Behavior\\My Behavior-19992.pt"
+                ]
+            },
+            {
+                "steps": 20732,
+                "file_path": "results\\=CarFirstRun\\My Behavior\\My Behavior-20732.onnx",
+                "reward": -12.546395603815714,
+                "creation_time": 1701439726.4047022,
+                "auxillary_file_paths": [
+                    "results\\=CarFirstRun\\My Behavior\\My Behavior-20732.pt"
+                ]
+            },
+            {
+                "steps": 21803,
+                "file_path": "results\\=CarFirstRun\\My Behavior\\My Behavior-21803.onnx",
+                "reward": -13.478483302252632,
+                "creation_time": 1701439891.2741935,
+                "auxillary_file_paths": [
+                    "results\\=CarFirstRun\\My Behavior\\My Behavior-21803.pt"
+                ]
+            },
+            {
+                "steps": 36276,
+                "file_path": "results\\=CarFirstRun\\My Behavior\\My Behavior-36276.onnx",
+                "reward": -29.48159749105752,
+                "creation_time": 1701440513.22471,
+                "auxillary_file_paths": [
+                    "results\\=CarFirstRun\\My Behavior\\My Behavior-36276.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 36276,
+            "file_path": "results\\=CarFirstRun\\My Behavior.onnx",
+            "reward": -29.48159749105752,
+            "creation_time": 1701440513.22471,
+            "auxillary_file_paths": [
+                "results\\=CarFirstRun\\My Behavior\\My Behavior-36276.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cpu"
+    }
+}
