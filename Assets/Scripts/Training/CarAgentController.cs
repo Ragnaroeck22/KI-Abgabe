@@ -98,8 +98,6 @@ public class CarAgentController : Agent
         continuousActions[1] = Input.GetAxisRaw("Throttle");
         continuousActions[2] = Input.GetAxisRaw("Brake");
 
-        print(Input.GetAxisRaw("Throttle"));
-
         if (Input.GetButton("Handbrake"))
         {
             continuousActions[3] = 1f;

@@ -22,7 +22,7 @@ public class CarRewardController : MonoBehaviour
     [SerializeField] private float _timeoutSeconds = 60f;
     private float _timeoutTimer = 0f;
     
-    [SerializeField] private Checkpoint _goal;
+    //[SerializeField] private Checkpoint _goal;
 
     private float _lowestDistanceToGoal;
     
@@ -34,6 +34,7 @@ public class CarRewardController : MonoBehaviour
 
     private void Update()
     {
+        /*
         float distanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
         if (distanceToGoal < _lowestDistanceToGoal)
         {
@@ -41,7 +42,7 @@ public class CarRewardController : MonoBehaviour
             _agent.AddReward(_lowestDistanceToGoal - distanceToGoal);
             _lowestDistanceToGoal = distanceToGoal;
         }
-        
+        */
         //_agent.AddReward(-distanceToGoal * 0.05f);
         
         if (!_enableTimeout)
@@ -93,29 +94,29 @@ public class CarRewardController : MonoBehaviour
     {
         if (other.CompareTag("Checkpoint"))
         {
-            Debug.Log("Checkpoint reached");
-            _agent.AddReward(_rewardCheckpoint);
-            other.GetComponent<Checkpoint>().CheckpointReached();
+            //Debug.Log("Checkpoint reached");
+            //_agent.AddReward(_rewardCheckpoint);
+            //other.GetComponent<Checkpoint>().CheckpointReached();
         }
 
         if (other.CompareTag("Goal"))
         {
-            Debug.Log("Goal reached");
-            _agent.AddReward(_rewardGoal);
-            other.GetComponent<Checkpoint>().CheckpointReached();
-            EndAgentEpisode();
+            //Debug.Log("Goal reached");
+            //_agent.AddReward(_rewardGoal);
+            //other.GetComponent<Checkpoint>().CheckpointReached();
+            //EndAgentEpisode();
         }
     }
 
     private void EndAgentEpisode()
     {
         _agent.EndEpisode();
-        _goal.ResetCallback();
+        //_goal.ResetCallback();
         _timeoutTimer = 0;
     }
 
     public void Reset()
     {
-        _lowestDistanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
+        //_lowestDistanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
     }
 }

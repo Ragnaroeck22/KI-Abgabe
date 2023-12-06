@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    // Clunky and obsolete
+    
     [SerializeField] private Checkpoint _nextCheckpoint;
     [SerializeField] private Checkpoint _previousCheckpoint;
 
