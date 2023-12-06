@@ -17,9 +17,15 @@ public class CarRewardController : MonoBehaviour
     [SerializeField] private float _rewardGoal = 0.8f;
     [SerializeField] private float _rewardVelocityModifier = 0.1f;
 
+    
     [SerializeField] private bool _enableTimeout = false;
     [SerializeField] private float _timeoutSeconds = 60f;
     private float _timeoutTimer = 0f;
+    
+    [SerializeField] private Checkpoint _goal;
+
+    private float _lowestDistanceToGoal;
+    
     private void Start()
     {
         _agent = GetComponent<CarAgentController>();
@@ -28,6 +34,16 @@ public class CarRewardController : MonoBehaviour
 
     private void Update()
     {
+        float distanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
+        if (distanceToGoal < _lowestDistanceToGoal)
+        {
+            //Debug.Log($"New best Distance To Goal: {distanceToGoal}");
+            _agent.AddReward(_lowestDistanceToGoal - distanceToGoal);
+            _lowestDistanceToGoal = distanceToGoal;
+        }
+        
+        //_agent.AddReward(-distanceToGoal * 0.05f);
+        
         if (!_enableTimeout)
             return;
         
@@ -35,16 +51,16 @@ public class CarRewardController : MonoBehaviour
         {
             Debug.Log("Timeout");
             _timeoutTimer = 0;
-            _agent.EndEpisode();
+            EndAgentEpisode();
             return;
         }
-
+        
         _timeoutTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
-        _agent.AddReward(_wrapper.GetVelocity() * _rewardVelocityModifier);
+        //_agent.AddReward(_wrapper.GetVelocity() * _rewardVelocityModifier);
         
         // Evaluate drift angle
         if (_wrapper.GetVelocity() < 1)
@@ -69,7 +85,7 @@ public class CarRewardController : MonoBehaviour
         {
             Debug.Log("Collision with wall");
             _agent.AddReward(_punishmentWall);
-            _agent.EndEpisode();
+            EndAgentEpisode();
         }
     }
 
@@ -87,7 +103,19 @@ public class CarRewardController : MonoBehaviour
             Debug.Log("Goal reached");
             _agent.AddReward(_rewardGoal);
             other.GetComponent<Checkpoint>().CheckpointReached();
-            _agent.EndEpisode();
+            EndAgentEpisode();
         }
+    }
+
+    private void EndAgentEpisode()
+    {
+        _agent.EndEpisode();
+        _goal.ResetCallback();
+        _timeoutTimer = 0;
+    }
+
+    public void Reset()
+    {
+        _lowestDistanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
     }
 }

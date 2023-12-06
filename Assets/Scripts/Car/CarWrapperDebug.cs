@@ -53,7 +53,7 @@ public class CarWrapperDebug : MonoBehaviour
         {
             float val = 1f;
 
-            val = (val + 1) * 0.5f;
+            //val = (val + 1) * 0.5f;
             _wrapper.SetThrottle(val);
         }
     }

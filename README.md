@@ -66,6 +66,12 @@ mlagents-learn --run-id =[Existierende Run-ID] --resume
 mlagents-learn --run-id =PelletGrabberRun3 --resume
 ``
 
+### KI von anderem Model ableiten
+``
+mlagents-learn --initialize-from =[Run-ID] --run-id =[Neue Run-ID] 
+``
+
+
 ### Aktueller Befehl:
 ``
 mlagents-learn --run-id =CarFirstRun --time-scale 1

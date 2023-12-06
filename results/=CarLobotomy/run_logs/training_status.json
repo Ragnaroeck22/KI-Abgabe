@@ -1,0 +1,29 @@
+{
+    "My Behavior": {
+        "checkpoints": [
+            {
+                "steps": 44638,
+                "file_path": "results\\=CarLobotomy\\My Behavior\\My Behavior-44638.onnx",
+                "reward": -88.12198322469538,
+                "creation_time": 1701694384.682215,
+                "auxillary_file_paths": [
+                    "results\\=CarLobotomy\\My Behavior\\My Behavior-44638.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 44638,
+            "file_path": "results\\=CarLobotomy\\My Behavior.onnx",
+            "reward": -88.12198322469538,
+            "creation_time": 1701694384.682215,
+            "auxillary_file_paths": [
+                "results\\=CarLobotomy\\My Behavior\\My Behavior-44638.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cpu"
+    }
+}

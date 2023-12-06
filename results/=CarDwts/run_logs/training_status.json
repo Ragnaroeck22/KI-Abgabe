@@ -1,0 +1,29 @@
+{
+    "My Behavior": {
+        "checkpoints": [
+            {
+                "steps": 1266,
+                "file_path": "results\\=CarDwts\\My Behavior\\My Behavior-1266.onnx",
+                "reward": 71.6399964928627,
+                "creation_time": 1701691729.6570039,
+                "auxillary_file_paths": [
+                    "results\\=CarDwts\\My Behavior\\My Behavior-1266.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1266,
+            "file_path": "results\\=CarDwts\\My Behavior.onnx",
+            "reward": 71.6399964928627,
+            "creation_time": 1701691729.6570039,
+            "auxillary_file_paths": [
+                "results\\=CarDwts\\My Behavior\\My Behavior-1266.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cpu"
+    }
+}

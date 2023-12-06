@@ -61,7 +61,7 @@ public class CarWrapper : MonoBehaviour
     // === Actions ===
     public void SetThrottle(float value)
     {
-        value = (value + 1) * 0.5f; // Format for -1/+1 instead of 0/+1
+        //value = (value + 1) * 0.5f; // Format for -1/+1 instead of 0/+1
         _vehicleController.data.Set(Channel.Input, InputData.Throttle, (int)(value * 10000f));
     }
 
@@ -69,7 +69,7 @@ public class CarWrapper : MonoBehaviour
     {
         //value = (value + 1) * 0.5f; // Format for -1/+1 instead of 0/+1
         if (value < 0)
-            return;
+            value = 0;
         _vehicleController.data.Set(Channel.Input, InputData.Brake, (int)(value * 10000f));
     }
 
@@ -98,7 +98,7 @@ public class CarWrapper : MonoBehaviour
     public void SetHandbrake(float value)
     {
         if (value < 0)
-            return;
+            value = 0;
         //value = (value + 1) * 0.5f; // Format for -1/+1 instead of 0/+1
         _vehicleController.data.Set(Channel.Input, InputData.Handbrake, (int)(value * 10000f));
     }

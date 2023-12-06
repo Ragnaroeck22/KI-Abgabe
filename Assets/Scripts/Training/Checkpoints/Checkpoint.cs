@@ -30,7 +30,7 @@ public class Checkpoint : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void ResetCallback()
+    public void ResetCallback()
     {
         // Essentially if this checkpoint is the first checkpoint
         if (_previousCheckpoint == null)
