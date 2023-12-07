@@ -52,6 +52,7 @@ public class AgentController : Agent
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.tag == "Pellet")
         {
             AddReward(10f);

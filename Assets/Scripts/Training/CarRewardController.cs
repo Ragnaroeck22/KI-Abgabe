@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CarRewardController : MonoBehaviour
+public class CarRewardController : MonoBehaviour, ICpListener
 {
     private CarAgentController _agent;
     private CarWrapper _wrapper;
+
+    [SerializeField] private CheckpointManager _checkpointManager;
     
     // Config
     [SerializeField] private float _punishmentWall = -0.8f;
@@ -30,21 +32,13 @@ public class CarRewardController : MonoBehaviour
     {
         _agent = GetComponent<CarAgentController>();
         _wrapper = GetComponent<CarWrapper>();
+        
+        _checkpointManager.AddListener(this);
     }
 
     private void Update()
     {
-        /*
-        float distanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
-        if (distanceToGoal < _lowestDistanceToGoal)
-        {
-            //Debug.Log($"New best Distance To Goal: {distanceToGoal}");
-            _agent.AddReward(_lowestDistanceToGoal - distanceToGoal);
-            _lowestDistanceToGoal = distanceToGoal;
-        }
-        */
-        //_agent.AddReward(-distanceToGoal * 0.05f);
-        
+
         if (!_enableTimeout)
             return;
         
@@ -69,14 +63,15 @@ public class CarRewardController : MonoBehaviour
 
         float driftAngle = _wrapper.GetAngleMovementToForward();
         
-        // Temporary: punish light drifting as well! (value was 100 instead of 30)
-        if (driftAngle >= 15)
+        /*
+        if (driftAngle >= 100)
         {
             if (driftAngle >= 170)
                 _agent.AddReward(_punishmentSpinOut);
             else
                 _agent.AddReward(_punishmentHighDriftAngle);
         }
+        */
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -86,10 +81,36 @@ public class CarRewardController : MonoBehaviour
         {
             Debug.Log("Collision with wall");
             _agent.AddReward(_punishmentWall);
-            EndAgentEpisode();
+            //EndAgentEpisode();
         }
     }
 
+    private void OnCollisionStay(Collision collisionInfo)
+    {
+        if (collisionInfo.gameObject.CompareTag("Wall"))
+        {
+            _agent.AddReward(_punishmentWall * 0.2f);
+        }
+    }
+
+    public void OnNotifyCorrectCheckpoint(bool isGoal)
+    {
+        print("correct cp");
+        _agent.AddReward(1f);
+        if (isGoal)
+        {
+            print("is goal");
+            EndAgentEpisode();
+        }
+            
+    }
+
+    public void OnNotifyWrongCheckpoint()
+    {
+        print("wrong cp");
+        _agent.AddReward(-1f);
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Checkpoint"))
@@ -110,13 +131,10 @@ public class CarRewardController : MonoBehaviour
 
     private void EndAgentEpisode()
     {
+        _checkpointManager.Reset();
         _agent.EndEpisode();
         //_goal.ResetCallback();
         _timeoutTimer = 0;
     }
-
-    public void Reset()
-    {
-        //_lowestDistanceToGoal = Vector3.Distance(transform.position, _goal.transform.position);
-    }
+    
 }

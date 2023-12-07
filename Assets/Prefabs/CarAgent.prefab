@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 7222888241622523573}
   - component: {fileID: 8805635035637899359}
   - component: {fileID: 2487366602101256301}
+  - component: {fileID: 3820429502195031517}
   m_Layer: 8
   m_Name: CarAgent
   m_TagString: Untagged
@@ -458,7 +459,7 @@ Rigidbody:
   m_Mass: 1403
   m_Drag: 0
   m_AngularDrag: 0
-  m_CenterOfMass: {x: 0.000000059604645, y: 0.36500046, z: 0.49800116}
+  m_CenterOfMass: {x: -7.1054274e-15, y: 0.36499998, z: 0.49800116}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -922,7 +923,9 @@ MonoBehaviour:
   m_SensorName: RayForwardSensor
   m_DetectableTags:
   - Checkpoint
-  m_RaysPerDirection: 1
+  - Wall
+  - Goal
+  m_RaysPerDirection: 2
   m_MaxRayDegrees: 40
   m_SphereCastRadius: 0.54
   m_RayLength: 230
@@ -949,10 +952,10 @@ MonoBehaviour:
   m_SensorName: RaySurroundSensor
   m_DetectableTags:
   - Wall
-  m_RaysPerDirection: 6
-  m_MaxRayDegrees: 180
+  m_RaysPerDirection: 8
+  m_MaxRayDegrees: 126.2
   m_SphereCastRadius: 0.39
-  m_RayLength: 50
+  m_RayLength: 104
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967283
@@ -1037,14 +1040,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ac54f83028d4748ad463377508f308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _punishmentWall: -1
-  _punishmentHighDriftAngle: -0.2
-  _punishmentSpinOut: -0.7
-  _rewardCheckpoint: 0.8
+  _checkpointManager: {fileID: 0}
+  _punishmentWall: -0.5
+  _punishmentHighDriftAngle: 0
+  _punishmentSpinOut: 0
+  _rewardCheckpoint: 1
   _rewardGoal: 1
   _rewardVelocityModifier: 0
   _enableTimeout: 1
   _timeoutSeconds: 30
+--- !u!114 &3820429502195031517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987566791872582252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 0
+  NumStepsToRecord: 0
+  DemonstrationName: 
+  DemonstrationDirectory: demos
 --- !u!1 &7175843366451237891
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class CheckpointSingle : MonoBehaviour
         if (carRewardController == null)
             return;
         
+        print($"checkpoint reached: {transform.name}");
         _checkpointManager.CheckpointReached(this);
     }
 

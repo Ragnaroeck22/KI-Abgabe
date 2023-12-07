@@ -8,5 +8,6 @@ public interface ICpNotifier
     
     //private List<ICpListener> _listeners;
 
-    public void NotifyListeners();
+    public void NotifyWrongCheckpoint();
+    public void NotifyCorrectCheckpoint(bool isGoal);
 }

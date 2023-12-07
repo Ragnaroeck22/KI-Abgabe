@@ -3,13 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointManager : MonoBehaviour
+public class CheckpointManager : MonoBehaviour, ICpNotifier
 {
-    public event EventHandler OnCorrectCheckpoint;
-    public event EventHandler OnWrongCheckpoint;
-    
     private List<CheckpointSingle> _checkpoints;
     private int _nextCheckpointIndex = 0;
+
+    private List<ICpListener> _listeners = new List<ICpListener>();
     
     void Awake()
     {
@@ -22,17 +21,48 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
+    public void AddListener(ICpListener listener)
+    {
+        _listeners.Add(listener);
+    }
+
+    public void NotifyCorrectCheckpoint(bool isGoal)
+    {
+        foreach (var listener in _listeners)
+        {
+
+            listener.OnNotifyCorrectCheckpoint(isGoal);
+        }
+    }
+
+    public void NotifyWrongCheckpoint()
+    {
+        foreach (var listener in _listeners)
+        {
+            listener.OnNotifyWrongCheckpoint();
+        }
+    }
+
 
     public void CheckpointReached(CheckpointSingle checkpoint)
     {
         if (_checkpoints.IndexOf(checkpoint) == _nextCheckpointIndex)
         {
             _nextCheckpointIndex = (_nextCheckpointIndex + 1) % _checkpoints.Count;
-            OnCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
+            checkpoint.gameObject.SetActive(false);
+            NotifyCorrectCheckpoint(checkpoint.CompareTag("Goal"));
         }
         else
         {
-            OnWrongCheckpoint?.Invoke(this, EventArgs.Empty);
+            NotifyWrongCheckpoint();
+        }
+    }
+
+    public void Reset()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
         }
     }
 }

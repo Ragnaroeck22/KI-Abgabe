@@ -1,5 +1,5 @@
 behaviors:
-  RollerBall:
+  CarImitationLearning:
     trainer_type: ppo
     hyperparameters:
       batch_size: 10
@@ -19,7 +19,14 @@ behaviors:
     reward_signals:
       extrinsic:
         gamma: 0.99
+        strength: 0.1
+      gail:
+        gamma: 0.99
         strength: 1.0
+        demo_path: demos/TESTESTESTEST
+    behavioral_cloning:
+      demo_path: demos/TESTESTEST
+      strength: 1.0
     max_steps: 500000
     time_horizon: 64
     summary_freq: 10000

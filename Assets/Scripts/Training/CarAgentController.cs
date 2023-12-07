@@ -37,7 +37,7 @@ public class CarAgentController : Agent
         _wrapper.Reset(_startPosition);
         transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
         
-        GetComponent<CarRewardController>().Reset();
+        //GetComponent<CarRewardController>().Reset();
         
         // Deviate from start rotation here
         if (_allowRandomRotation)

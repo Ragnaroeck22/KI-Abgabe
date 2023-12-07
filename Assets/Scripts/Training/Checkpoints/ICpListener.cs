@@ -5,5 +5,6 @@ using UnityEngine;
 public interface ICpListener
 {
     // Obsolete. Leaving it in for now
-    public void OnNotify(Transform notifier);
+    public void OnNotifyWrongCheckpoint();
+    public void OnNotifyCorrectCheckpoint(bool isGoal);
 }
