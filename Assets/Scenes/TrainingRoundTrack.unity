@@ -1594,7 +1594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752584868}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14928636, y: 0.000000029468358, z: -0.00000000444908, w: 0.988794}
+  m_LocalRotation: {x: 0.14928637, y: -3.4730905e-15, z: 6.166543e-16, w: 0.988794}
   m_LocalPosition: {x: 33, y: 4.6499996, z: -14.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4056,6 +4056,14 @@ PrefabInstance:
       propertyPath: _checkpointManager
       value: 
       objectReference: {fileID: 1181815509}
+    - target: {fileID: 3820429502195031517, guid: 9378a8265cfe5984ba74691ec96d10a2, type: 3}
+      propertyPath: Record
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820429502195031517, guid: 9378a8265cfe5984ba74691ec96d10a2, type: 3}
+      propertyPath: DemonstrationName
+      value: CarRoundTrack
+      objectReference: {fileID: 0}
     - target: {fileID: 6907635235500059449, guid: 9378a8265cfe5984ba74691ec96d10a2, type: 3}
       propertyPath: showTelemetry
       value: 0
@@ -4122,6 +4130,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7222888241622523573, guid: 9378a8265cfe5984ba74691ec96d10a2, type: 3}
       propertyPath: _startRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627609050255781614, guid: 9378a8265cfe5984ba74691ec96d10a2, type: 3}
+      propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4484,7 +4496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601559007}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14928636, y: 0.000000029468358, z: -0.00000000444908, w: 0.988794}
+  m_LocalRotation: {x: 0.14928637, y: -3.4730905e-15, z: 6.166543e-16, w: 0.988794}
   m_LocalPosition: {x: 33, y: 4.6499996, z: -14.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

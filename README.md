@@ -74,9 +74,5 @@ mlagents-learn --initialize-from =[Run-ID] --run-id =[Neue Run-ID]
 
 ### Aktueller Befehl:
 ``
-mlagents-learn --run-id =CarFirstRun --time-scale 1
-``
-
-``
-mlagents-learn --run-id =CarFirstRun --resume --time-scale 1
+mlagents-learn config/carIL.yaml --run-id =CarILRoundTrack --time-scale 1
 ``
