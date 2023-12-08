@@ -23,9 +23,9 @@ behaviors:
       gail:
         gamma: 0.99
         strength: 1.0
-        demo_path: demos/CarRoundTrackSho.demo
+        demo_path: demos/SimpleCarRT.demo
     behavioral_cloning:
-      demo_path: demos/CarRoundTrackSho.demo
+      demo_path: demos/SimpleCarRT.demo
       strength: 1.0
     max_steps: 500000
     time_horizon: 64

@@ -1594,7 +1594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752584868}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14928636, y: 0.000000032946623, z: -0.000000004974223, w: 0.988794}
+  m_LocalRotation: {x: 0.14928639, y: -3.5826614e-15, z: 6.575506e-16, w: 0.988794}
   m_LocalPosition: {x: 33, y: 3.5590856, z: -14.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4382,7 +4382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601559007}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14928636, y: 0.000000032946623, z: -0.000000004974223, w: 0.988794}
+  m_LocalRotation: {x: 0.14928639, y: -3.5826614e-15, z: 6.575506e-16, w: 0.988794}
   m_LocalPosition: {x: 33, y: 3.5590856, z: -14.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6512,10 +6512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Record: 0
+  Record: 1
   NumStepsToRecord: 0
-  DemonstrationName: 
-  DemonstrationDirectory: 
+  DemonstrationName: SimpleCarRT
+  DemonstrationDirectory: demos
 --- !u!114 &4221882801788955871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6564,7 +6564,6 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   _allowRandomRotation: 0
-  _rigidbody: {fileID: 0}
   _turnRate: 40
   _acceleration: 30
   _brakePower: 0.5
