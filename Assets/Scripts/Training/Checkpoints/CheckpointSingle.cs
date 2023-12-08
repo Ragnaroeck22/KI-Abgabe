@@ -11,8 +11,13 @@ public class CheckpointSingle : MonoBehaviour
     {
         CarRewardController carRewardController = other.GetComponentInParent<CarRewardController>();
         if (carRewardController == null)
-            return;
-        
+        {
+            SimpleCarRewardController sCarRewardController = other.GetComponentInParent<SimpleCarRewardController>();
+            if (sCarRewardController == null)
+                return;
+        }
+            
+
         print($"checkpoint reached: {transform.name}");
         _checkpointManager.CheckpointReached(this);
     }

@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1701959250",
+        "python_version": "3.10.3 (tags/v3.10.3:a342a49, Mar 16 2022, 13:07:40) [MSC v.1929 64 bit (AMD64)]",
+        "command_line_arguments": "F:\\Unity\\KI Abgabe\\MLvenv\\Scripts\\mlagents-learn --run-id =GpuTest",
+        "mlagents_version": "1.0.0",
+        "mlagents_envs_version": "1.0.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.1.1+cu121",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1701959257"
+    },
+    "total": 6.526229800190777,
+    "count": 1,
+    "self": 0.012938900152221322,
+    "children": {
+        "run_training.setup": {
+            "total": 0.029298400040715933,
+            "count": 1,
+            "self": 0.029298400040715933
+        },
+        "TrainerController.start_learning": {
+            "total": 6.483992499997839,
+            "count": 1,
+            "self": 0.00039590010419487953,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 6.483579699881375,
+                    "count": 1,
+                    "self": 6.483579699881375
+                },
+                "trainer_threads": {
+                    "total": 6.998889148235321e-07,
+                    "count": 1,
+                    "self": 6.998889148235321e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 1.6200123354792595e-05,
+                    "count": 1,
+                    "self": 1.6200123354792595e-05
+                }
+            }
+        }
+    }
+}
