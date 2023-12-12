@@ -1,0 +1,29 @@
+{
+    "CarImitationLearning": {
+        "checkpoints": [
+            {
+                "steps": 203143,
+                "file_path": "results\\=CarNoSteer\\CarImitationLearning\\CarImitationLearning-203143.onnx",
+                "reward": null,
+                "creation_time": 1702312409.8885605,
+                "auxillary_file_paths": [
+                    "results\\=CarNoSteer\\CarImitationLearning\\CarImitationLearning-203143.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 203143,
+            "file_path": "results\\=CarNoSteer\\CarImitationLearning.onnx",
+            "reward": null,
+            "creation_time": 1702312409.8885605,
+            "auxillary_file_paths": [
+                "results\\=CarNoSteer\\CarImitationLearning\\CarImitationLearning-203143.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cu121"
+    }
+}

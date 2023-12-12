@@ -13,6 +13,10 @@ public class CarAgentController : Agent
     // Config
     [SerializeField] private Vector3 _startPosition;
     [SerializeField] private Quaternion _startRotation;
+    
+    [SerializeField] private Vector3 _rbStartPosition;
+    [SerializeField] private Quaternion _rbStartRotation;
+    
     [SerializeField] private bool _allowRandomRotation = false;
     //[SerializeField] private float _maximumRotationDeviation = 15f;
     
@@ -29,6 +33,10 @@ public class CarAgentController : Agent
         _resetter = GetComponent<VPResetVehicle>();
         _startPosition = transform.position;
         _startRotation = transform.rotation;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        _rbStartPosition = rb.position;
+        _rbStartRotation = rb.rotation;
     }
 
     public override void OnEpisodeBegin()
@@ -36,6 +44,9 @@ public class CarAgentController : Agent
         _resetter.DoReset();
         _wrapper.Reset(_startPosition);
         transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.position = _rbStartPosition;
+        rb.rotation = _rbStartRotation;
         
         //GetComponent<CarRewardController>().Reset();
         

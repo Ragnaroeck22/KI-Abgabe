@@ -1,0 +1,29 @@
+{
+    "CarImitationLearning": {
+        "checkpoints": [
+            {
+                "steps": 43613,
+                "file_path": "results\\=CarPrettyPls\\CarImitationLearning\\CarImitationLearning-43613.onnx",
+                "reward": 0.0,
+                "creation_time": 1702313622.0723639,
+                "auxillary_file_paths": [
+                    "results\\=CarPrettyPls\\CarImitationLearning\\CarImitationLearning-43613.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 43613,
+            "file_path": "results\\=CarPrettyPls\\CarImitationLearning.onnx",
+            "reward": 0.0,
+            "creation_time": 1702313622.0723639,
+            "auxillary_file_paths": [
+                "results\\=CarPrettyPls\\CarImitationLearning\\CarImitationLearning-43613.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cu121"
+    }
+}

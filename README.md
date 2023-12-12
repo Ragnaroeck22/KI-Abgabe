@@ -74,5 +74,8 @@ mlagents-learn --initialize-from =[Run-ID] --run-id =[Neue Run-ID]
 
 ### Aktueller Befehl:
 ``
-mlagents-learn config/carIL.yaml --run-id =CarILRoundTrack --time-scale 1
+mlagents-learn config/carIL.yaml --run-id =CarILRoundTrack --time-scale 2
 ``
+
+
+mlagents-learn --run-id =Desperation --time-scale 3

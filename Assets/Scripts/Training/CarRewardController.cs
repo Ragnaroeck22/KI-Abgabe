@@ -24,7 +24,7 @@ public class CarRewardController : MonoBehaviour, ICpListener
     [SerializeField] private float _timeoutSeconds = 60f;
     private float _timeoutTimer = 0f;
     
-    //[SerializeField] private Checkpoint _goal;
+    //[SerializeField] private CheckpointSingle _goal;
 
     private float _lowestDistanceToGoal;
     

@@ -110,7 +110,7 @@ public class CarWrapper : MonoBehaviour
     public void Reset(Vector3 resetPosition)
     {
         _rigidbody.isKinematic = true;
-        _rigidbody.position = resetPosition;
+        //_rigidbody.position = resetPosition;
         SetGear(1);
         StartCoroutine(WaitForStupidPhysicsToCalmDown());
     }

@@ -12,6 +12,9 @@ public class SimpleCarAgentController : Agent
     private Vector3 _startPosition;
     private Quaternion _startRotation;
     
+    private Vector3 _rbStartPosition;
+    private Quaternion _rbStartRotation;
+    
     [SerializeField] private bool _allowRandomRotation = false;
     //[SerializeField] private float _maximumRotationDeviation = 15f;
 
@@ -21,18 +24,27 @@ public class SimpleCarAgentController : Agent
     [SerializeField] private float _acceleration = 30f;
     [SerializeField] private float _brakePower = 0.5f;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _startPosition = transform.position;
         _startRotation = transform.rotation;
+
+        _rbStartPosition = _rigidbody.position;
+        _rbStartRotation = _rigidbody.rotation;
     }
 
     public override void OnEpisodeBegin()
     {
         _rigidbody.position = _startPosition;
+        _rigidbody.rotation = _startRotation;
         _rigidbody.velocity = Vector3.zero;
-        transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
+        //transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
 
         // Deviate from start rotation here
         if (_allowRandomRotation)
