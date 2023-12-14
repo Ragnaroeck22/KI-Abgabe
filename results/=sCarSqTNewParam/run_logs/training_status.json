@@ -1,0 +1,29 @@
+{
+    "SimpleCar": {
+        "checkpoints": [
+            {
+                "steps": 100368,
+                "file_path": "results\\=sCarSqTNewParam\\SimpleCar\\SimpleCar-100368.onnx",
+                "reward": null,
+                "creation_time": 1702466900.5155404,
+                "auxillary_file_paths": [
+                    "results\\=sCarSqTNewParam\\SimpleCar\\SimpleCar-100368.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 100368,
+            "file_path": "results\\=sCarSqTNewParam\\SimpleCar.onnx",
+            "reward": null,
+            "creation_time": 1702466900.5155404,
+            "auxillary_file_paths": [
+                "results\\=sCarSqTNewParam\\SimpleCar\\SimpleCar-100368.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cu121"
+    }
+}

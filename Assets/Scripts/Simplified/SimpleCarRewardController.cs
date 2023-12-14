@@ -24,7 +24,8 @@ public class SimpleCarRewardController : MonoBehaviour, ICpListener
 
     private void Update()
     {
-
+        //_agent.AddReward(-Time.deltaTime * 0.1f);
+        
         if (!_enableTimeout)
             return;
         
@@ -60,10 +61,11 @@ public class SimpleCarRewardController : MonoBehaviour, ICpListener
     public void OnNotifyCorrectCheckpoint(bool isGoal)
     {
         print("correct cp");
-        _agent.AddReward(1f);
+        _agent.AddReward(_rewardCheckpoint);
         if (isGoal)
         {
             print("is goal");
+            _agent.AddReward(_rewardCheckpoint * 2);
             EndAgentEpisode();
         }
     }
@@ -71,7 +73,7 @@ public class SimpleCarRewardController : MonoBehaviour, ICpListener
     public void OnNotifyWrongCheckpoint()
     {
         print("wrong cp");
-        _agent.AddReward(-1f);
+        _agent.AddReward(-_rewardCheckpoint);
     }
 
     private void EndAgentEpisode()

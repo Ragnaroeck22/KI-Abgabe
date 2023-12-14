@@ -64,5 +64,6 @@ public class CheckpointManager : MonoBehaviour, ICpNotifier
         {
             child.gameObject.SetActive(true);
         }
+        _nextCheckpointIndex = 0;
     }
 }

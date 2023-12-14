@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SimpleCarAgentController : Agent
 {
@@ -41,8 +37,10 @@ public class SimpleCarAgentController : Agent
 
     public override void OnEpisodeBegin()
     {
-        _rigidbody.position = _startPosition;
-        _rigidbody.rotation = _startRotation;
+        transform.position = _startPosition;
+        transform.rotation = _startRotation;
+        _rigidbody.position = _rbStartPosition;
+        _rigidbody.rotation = _rbStartRotation;
         _rigidbody.velocity = Vector3.zero;
         //transform.SetLocalPositionAndRotation(_startPosition, _startRotation);
 

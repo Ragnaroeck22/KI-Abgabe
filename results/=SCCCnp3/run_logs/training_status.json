@@ -1,0 +1,47 @@
+{
+    "SimpleCar": {
+        "checkpoints": [
+            {
+                "steps": 499964,
+                "file_path": "results\\=SCCCnp3\\SimpleCar\\SimpleCar-499964.onnx",
+                "reward": 16.25,
+                "creation_time": 1702571919.305888,
+                "auxillary_file_paths": [
+                    "results\\=SCCCnp3\\SimpleCar\\SimpleCar-499964.pt"
+                ]
+            },
+            {
+                "steps": 999981,
+                "file_path": "results\\=SCCCnp3\\SimpleCar\\SimpleCar-999981.onnx",
+                "reward": null,
+                "creation_time": 1702573463.0348997,
+                "auxillary_file_paths": [
+                    "results\\=SCCCnp3\\SimpleCar\\SimpleCar-999981.pt"
+                ]
+            },
+            {
+                "steps": 1000173,
+                "file_path": "results\\=SCCCnp3\\SimpleCar\\SimpleCar-1000173.onnx",
+                "reward": null,
+                "creation_time": 1702573463.1248925,
+                "auxillary_file_paths": [
+                    "results\\=SCCCnp3\\SimpleCar\\SimpleCar-1000173.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000173,
+            "file_path": "results\\=SCCCnp3\\SimpleCar.onnx",
+            "reward": null,
+            "creation_time": 1702573463.1248925,
+            "auxillary_file_paths": [
+                "results\\=SCCCnp3\\SimpleCar\\SimpleCar-1000173.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cu121"
+    }
+}

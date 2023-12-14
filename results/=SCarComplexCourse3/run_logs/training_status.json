@@ -1,0 +1,29 @@
+{
+    "SimpleCar": {
+        "checkpoints": [
+            {
+                "steps": 100204,
+                "file_path": "results\\=SCarComplexCourse3\\SimpleCar\\SimpleCar-100204.onnx",
+                "reward": null,
+                "creation_time": 1702472380.8046176,
+                "auxillary_file_paths": [
+                    "results\\=SCarComplexCourse3\\SimpleCar\\SimpleCar-100204.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 100204,
+            "file_path": "results\\=SCarComplexCourse3\\SimpleCar.onnx",
+            "reward": null,
+            "creation_time": 1702472380.8046176,
+            "auxillary_file_paths": [
+                "results\\=SCarComplexCourse3\\SimpleCar\\SimpleCar-100204.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.1.1+cu121"
+    }
+}
