@@ -21,7 +21,7 @@ behaviors:
         strength: 1.0
       gail:
         gamma: 0.99
-        strength: 0.5
+        strength: 0.0
         network_settings:
           normalize: false
           hidden_units: 128
@@ -38,5 +38,5 @@ behaviors:
     behavioral_cloning:
       demo_path: demos/SimpleCarCourse.demo
       steps: 50000
-      strength: 0.5
+      strength: 0.0
       samples_per_update: 0

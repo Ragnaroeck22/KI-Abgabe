@@ -54,7 +54,7 @@ public class SimpleCarRewardController : MonoBehaviour, ICpListener
     {
         if (collisionInfo.gameObject.CompareTag("Wall"))
         {
-            _agent.AddReward(_punishmentWall * 0.2f);
+            //_agent.AddReward(_punishmentWall * 0.2f);
         }
     }
 

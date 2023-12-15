@@ -107,4 +107,4 @@ SCarComplexCourse: Ex: 1.0, GAIL: 0.01, BC: 1.0
 
 SCCCnp: Ex: 1.0, GAIL: 0.3, BC: 0.7
 
-WallDrill (abgeleitet von SCCCnp3): Ex: 1.0, GAIL: 0, BC: 0
+SCAvoidWalls (abgeleitet von SCCCnp3): Ex: 1.0, GAIL: 0, BC: 0

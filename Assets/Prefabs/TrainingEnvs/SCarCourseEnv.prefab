@@ -3666,7 +3666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkpointManager: {fileID: 6680854831326566075}
-  _punishmentWall: 0
+  _punishmentWall: 0.2
   _rewardCheckpoint: 1
   _enableTimeout: 1
   _timeoutSeconds: 30
