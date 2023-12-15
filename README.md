@@ -13,8 +13,8 @@ Leider konnte ich das Projekt noch nicht auf einem anderen Gerät testen. Besten
 dieses Projekt out-of-the-box getestet werden können, ohne dass zusätzliche Abhängigkeiten 
 bezogen werden müssen.
 
-Dafür muss das Projekt zunächst im Unity Editor geöffnet werden. Das Projekt wurde in Unity
-Version 2022.3.11f1 erstellt, ist wahrscheinlich aber kompatibel mit neueren Versionen.
+Dafür muss das Projekt zunächst im Unity Editor geöffnet werden. Es wurde in Unity
+Version 2022.3.11f1 erstellt, ist wahrscheinlich aber mit neueren Versionen kompatibel.
 
 Anschließend muss die "Demo Scene" geöffnet werden, welche unter Assets/Scenes zu finden ist.
 Wird nun auf den Play-Button gedrückt, beginnt eine trainierte KI die Strecke zu durchqueren.
