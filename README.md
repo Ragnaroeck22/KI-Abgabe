@@ -9,15 +9,14 @@ sehr simples Auto über eine kurze Rennstrecke.
 
 ## Anleitung zum Ausführen in Unity
 
-Leider konnte ich das Projekt noch nicht auf einem anderen Gerät testen. Bestenfalls sollte
-dieses Projekt out-of-the-box getestet werden können, ohne dass zusätzliche Abhängigkeiten 
+Dieses Projekt sollte out-of-the-box ausgeführt werden können, ohne dass zusätzliche Abhängigkeiten 
 bezogen werden müssen.
 
 Dafür muss das Projekt zunächst im Unity Editor geöffnet werden. Es wurde in Unity
 Version 2022.3.11f1 erstellt, ist wahrscheinlich aber mit neueren Versionen kompatibel.
 
 Anschließend muss die "Demo Scene" geöffnet werden, welche unter Assets/Scenes zu finden ist.
-Wird nun auf den Play-Button gedrückt, beginnt eine trainierte KI die Strecke zu durchqueren.
+Wird nun auf den Play-Button gedrückt, beginnen drei verschieden lang trainierte KIs die Strecke zu durchqueren (besser zu sehen im Scene-View).
 
 Führt dies zu Fehlern, sollte die folgende Anleitung ebenfalls befolgt werden.
 
@@ -29,24 +28,22 @@ GitHub, daher sind diese nicht im Repo enthalten und müssen selbst bezogen werd
 
 #### Wichtig: Aus mir unbekannten Gründen sind die Abhängigkeiten des Projekts nur mit sehr wenigen Versionen von Python kompatibel. Ich benutze Python 3.10.3.
 
-Ich empfehle den im Repo exkludierte "Lib"-Ordner unter folgendem Link herunterzuladen:
+Ich empfehle _dringend_, den Ordner "MLvenv" zu löschen und an seiner Stelle ein 
+neues Python Virtual Environment (am besten mit gleichem Namen) zu erstellen, bspw.
+mit folgendem Befehl
 
+``
+python -m venv F:/Unity/KI Abgabe/MLvenv
+``
 
-Dieser soll im "MLvenv"-Ordner platziert werden
-
-Sollte dies nicht möglich sein, können folgende Anweisungen befolgt werden. 
-Es besteht kein Gewähr, dass diese Anleitung funktioniert, da ich die Schritte
-nicht auf einem anderen Gerät testen konnte.
-
-
-Zunächst muss das Terminal geöffnet und der Dateipfad des
+Ist das venv erstellt, muss das Terminal geöffnet und der Dateipfad des
 Projekts ausgewählt werden, bspw. mit folgendem Befehl:
 
 ``
 cd F:\Unity\KI Abgabe
 ``
 
-Danach muss das Python virtual environment aktiviert werden.
+Danach muss das Python Virtual Environment aktiviert werden.
 
 ``
 MLvenv\Scripts\activate.bat
@@ -64,7 +61,7 @@ Nach Belieben kann auch eine mit Cuda kompatible version von PyTorch installiert
 sofern zuvor Cuda installiert wurde.
 
 Bei korrekter installation sollte der Befehl
-``mlagents-learn -help``
+``mlagents-learn --help``
 eine Liste von Konfigurationsbefehlen ausgeben.
 
 
